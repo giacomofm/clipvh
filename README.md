@@ -1,2 +1,3 @@
 # clipvh
-Clipboard history for Wayland that I open with SUPER + V
+
+Should be a simple clipboard history for Wayland that I hope to open with SUPER + V
