@@ -6,6 +6,7 @@ use winit::event::WindowEvent;
 use winit::event_loop::{ActiveEventLoop, ControlFlow, EventLoop};
 use winit::window::{Window, WindowId};
 
+const BACKGROUND_COLOR: u32 = 0xff181818;
 const WINDOW_WIDTH: u32 = 300;
 const WINDOW_HEIGHT: u32 = 400;
 
@@ -36,7 +37,7 @@ impl ApplicationHandler for App {
     }
 
     fn window_event(&mut self, event_loop: &ActiveEventLoop, _id: WindowId, event: WindowEvent) {
-        // println!("{event:?}");
+        println!("{event:?}");
         match event {
             WindowEvent::CloseRequested => {
                 println!("Close was requested; stopping");
@@ -57,11 +58,11 @@ impl ApplicationHandler for App {
                     .unwrap()
                     .buffer_mut()
                     .expect("Failed to get the softbuffer buffer");
-                buffer.fill(0xff181818);
+                buffer.fill(BACKGROUND_COLOR);
                 buffer
                     .present()
                     .expect("Failed to present the softbuffer buffer");
-                self.window.as_ref().unwrap().request_redraw();
+                // self.window.as_ref().unwrap().request_redraw();
             }
             _ => (),
         }
